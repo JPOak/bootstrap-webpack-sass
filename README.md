@@ -1,6 +1,6 @@
-# Bootstrap 4, Webpack, and SCSS Starter
+# Bootstrap 4, Webpack, and Sass Starter
 
-This is to help jump start a Bootstrap 4, Webpack, SCSS project.
+This is to help jump start a Bootstrap 4, Webpack, Sass project.
 
 ### Prerequisites
 

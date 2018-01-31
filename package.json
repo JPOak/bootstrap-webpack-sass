@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-4-webpack",
   "version": "1.0.0",
-  "description": "Bootstrap 4, Webpack, and SCSS Starter Project.",
+  "description": "Bootstrap 4, Webpack, and Sass Starter Project.",
   "author": "JPOak",
   "repository" :
     { "type" : "git"
