@@ -17,7 +17,7 @@ const config = {
 	},
 	module: {
 		rules: [
-			{	
+			{
 				test: /\.js$/,
 				use: 'babel-loader',
 				exclude: /node_modules/
@@ -48,7 +48,7 @@ const config = {
 		]
 	},
 	devtool: 'inline-source-map',
-	plugins: [	
+	plugins: [
 	 	new CleanWebpackPlugin(['dist/scripts', 'dist/styles']),
 	 	new ExtractTextPlugin('../styles/main.css'),
 	 	new BrowserSyncPlugin({
@@ -61,7 +61,7 @@ const config = {
 		new CopyWebpackPlugin([{
 		      from: path.resolve(__dirname, 'src/assets/images'),
 		      to: path.resolve(__dirname, 'dist/images')
-		    }]),	    
+		    }]),
 	    new ImageminPlugin({
       		disable: process.env.NODE_ENV !== 'production', // Disable during development
       		test: /\.(jpe?g|png|gif|svg)$/i,
