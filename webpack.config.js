@@ -30,6 +30,16 @@ module.exports = function(env, argv) {
         new OptimizeCSSAssetsPlugin({})//Compiles Sass to CSS minifies and removes maps in production
         ]
     },
+    stats: {
+      hash: false,
+      version: false,
+      timings: false,
+      children: false,
+      chunks: false,
+      modules: false,
+      source: false,
+      publicPath: false
+    },
     module: {
         rules: [
             {
