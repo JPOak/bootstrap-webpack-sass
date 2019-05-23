@@ -9,7 +9,7 @@ You will need updated versions of Node and NPM to get started.
 ### Building
 
 ```
-npm run dist
+npm run dev
 ```
 
 Will compile scss and js with sourcemaps and copy from "src" to "dist." demo.html example to make sure things look right.
