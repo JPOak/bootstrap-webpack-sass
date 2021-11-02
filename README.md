@@ -1,6 +1,6 @@
-# Bootstrap 4, Webpack 4, and Sass Starter
+# Bootstrap 5, Webpack 5, and Sass Starter
 
-This is to help jump start a Bootstrap 4, Webpack, Sass project.
+This is to help jump start a Bootstrap 5 project.
 
 ### Prerequisites
 
@@ -24,7 +24,7 @@ Will launch browsersync and watch changes in scss and js in the "src" dirctory, 
 npm run build
 ```
 
-Will minify all the files and remove sourcemaps and copy to the "dist" directory. Images in assets will be optimized. Note: Depending on how many images you have it may take awhile on first run.
+Will minify all the files and remove sourcemaps and copy to the "dist" directory. Images in assets will be optimized. Note: Depending on how many images you have it may take awhile on first run. Delete the .cache file to rerun all images.
 
 ## Built With
 

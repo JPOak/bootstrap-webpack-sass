@@ -1,11 +1,13 @@
 const webpack = require('webpack');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const imageminMozjpeg = require('imagemin-mozjpeg');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('css-minimizer-webpack-plugin');
+
+
 const path = require('path');
 
 module.exports = function(env, argv) {
@@ -13,8 +15,9 @@ module.exports = function(env, argv) {
   return {
     entry: ['./src/assets/scripts/main.js', './src/assets/styles/_main.scss'],
     output: {
-        path: path.resolve(__dirname, 'dist/scripts'),
-        filename: 'main.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'main.js',
+        clean: true,
     },
     performance: {
       hints: false
@@ -22,12 +25,11 @@ module.exports = function(env, argv) {
     devtool: argv.mode === 'production' ? false : 'source-map',
     optimization: {
         minimizer: [
-        new UglifyJsPlugin({
+        new TerserPlugin({
           parallel: true,
-          extractComments: true,
-          sourceMap: false
+          extractComments: true
         }),
-        new OptimizeCSSAssetsPlugin({})//Compiles Sass to CSS minifies and removes maps in production
+        new OptimizeCSSAssetsPlugin({})//Compiles Sass to CSS and minifies.
         ]
     },
     stats: {
@@ -74,10 +76,8 @@ module.exports = function(env, argv) {
         ]
     },
     plugins: [
-      new CleanWebpackPlugin(argv.mode === 'production' ? ['dist/scripts/*.map', 'dist/styles/*.map'] : ['dist/scripts/*.LICENSE'], {
-      }),
       new MiniCssExtractPlugin({
-          filename: "../styles/[name].css"
+          filename: "[name].css"
           //chunkFilename: "[id].css"
       }),
       new BrowserSyncPlugin({
@@ -87,19 +87,26 @@ module.exports = function(env, argv) {
           port: 3000,
           server: { baseDir: ['./'] }
       }),
-      new CopyWebpackPlugin([{
-          from: path.resolve(__dirname, 'src/assets/images'),
-          to: path.resolve(__dirname, 'dist/images')
-      }]),
+      new CopyWebpackPlugin({
+        patterns: [
+          { from: path.resolve(__dirname, 'src/assets/images'), to: path.resolve(__dirname, 'dist/images') },
+        ],
+      }),
       new ImageminPlugin({
           disable: argv.mode === 'production' ? false : true,// Disable during development
           test: /\.(jpe?g|png|gif|svg)$/i,
           cacheFolder: path.resolve(__dirname, '.cache'),
           //For more about image settings: https://github.com/Klathmon/imagemin-webpack-plugin
           pngquant: { quality: '90', speed: 4},
-          jpegtran: { progressive: true },
+          jpegtran: {},
           gifsicle: { optimizationLevel: 1 },
-          svgo: {}
+          svgo: {},
+          plugins: [
+            imageminMozjpeg({
+                quality: 70,
+                progressive: true,
+            }),
+        ],
       }),
       new webpack.ProvidePlugin({
           $: 'jquery',

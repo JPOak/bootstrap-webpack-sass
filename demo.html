@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title></title>
         <meta name="description" content="">
-        <link rel="stylesheet" href="dist/styles/main.css">
+        <link rel="stylesheet" href="dist/main.css">
         <style type="text/css">
             h2 {
             padding: 20px 0;
@@ -106,48 +106,60 @@
                     </div>
                 </div>
             </div>
+
             <hr>
+
             <h2 class="text-center">Dropdown</h2>
+            <!-- Large button groups (default and split) -->
             <div class="btn-group">
-                <button type="button" class="btn btn-danger">Action</button>
-                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                </div>
+              <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Large button
+              </button>
+              <ul class="dropdown-menu">
+                <li>Item 1</li>
+                <li>Item 2</li>
+              </ul>
             </div>
+            <div class="btn-group">
+              <button class="btn btn-secondary btn-lg" type="button">
+                Large split button
+              </button>
+              <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>Item 1</li>
+                <li>Item 2</li>
+              </ul>
+            </div>
+
             <hr>
+
             <h2 class="text-center">Modal</h2>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Launch demo modal
             </button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
                 </div>
+              </div>
             </div>
+
             <hr>
+
             <h2 class="text-center">Pagination</h2>
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
@@ -161,6 +173,6 @@
             <hr>
         </div>
         <!-- end -->
-        <script src="dist/scripts/main.js"></script>
+        <script src="dist/main.js"></script>
     </body>
 </html>
