@@ -5,7 +5,7 @@
   "author": "JPOak",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JPOak/bootstrap-4-webpack-sass.git"
+    "url": "https://github.com/JPOak/bootstrap-webpack-sass.git"
   },
   "license": "MIT",
   "scripts": {
