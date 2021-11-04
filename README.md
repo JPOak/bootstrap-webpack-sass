@@ -4,7 +4,7 @@ This is to help jump start a Bootstrap 5 project.
 
 ### Prerequisites
 
-You will need updated versions of Node and NPM to get started.
+Tested with Node 16.8+ and NPM 7.21+
 
 ### Building
 
