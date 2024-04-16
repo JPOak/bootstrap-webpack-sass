@@ -1,7 +1,5 @@
 const webpack = require('webpack');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
-const imageminMozjpeg = require('imagemin-mozjpeg');
+const BrowserSyncPlugin = require('browser-sync-v3-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -90,22 +88,6 @@ module.exports = function(env, argv) {
       new CopyWebpackPlugin({
         patterns: [
           { from: path.resolve(__dirname, 'src/assets/images'), to: path.resolve(__dirname, 'dist/images') },
-        ],
-      }),
-      new ImageminPlugin({
-          disable: argv.mode === 'production' ? false : true,// Disable during development
-          test: /\.(jpe?g|png|gif|svg)$/i,
-          cacheFolder: path.resolve(__dirname, '.cache'),
-          //For more about image settings: https://github.com/Klathmon/imagemin-webpack-plugin
-          pngquant: { quality: '90', speed: 4},
-          jpegtran: {},
-          gifsicle: { optimizationLevel: 1 },
-          svgo: {},
-          plugins: [
-            imageminMozjpeg({
-                quality: 70,
-                progressive: true,
-            }),
         ],
       }),
       new webpack.ProvidePlugin({

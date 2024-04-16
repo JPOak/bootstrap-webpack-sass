@@ -1,21 +1,15 @@
-//Import all Bootstrap components
-import 'bootstrap';
+// Import our custom CSS
+import '../styles/_main.scss'
 
-//Or comment out the above and uncomment individual components below
+// Import all of Bootstrap's JS
+import * as bootstrap from 'bootstrap'
 
-//import 'bootstrap/js/dist/alert';
-//import 'bootstrap/js/dist/base-component';
-//import 'bootstrap/js/dist/button';
-//import 'bootstrap/js/dist/carousel';
-//import 'bootstrap/js/dist/collapse';
-//import 'bootstrap/js/dist/dropdown';
-//import 'bootstrap/js/dist/modal';
-//import 'bootstrap/js/dist/offcanvas';
-//import 'bootstrap/js/dist/popover';
-//import 'bootstrap/js/dist/scrollspy';
-//import 'bootstrap/js/dist/tab';
-//import 'bootstrap/js/dist/toast';
-//import 'bootstrap/js/dist/tooltip';
+
+
+//Or comment out the above and add individual components
+
+//import { Tooltip, Toast, Popover } from 'bootstrap'
+
 
 /************** OTHER JS HERE ***************
 *********************************************/
